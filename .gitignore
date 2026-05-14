@@ -16,6 +16,9 @@
 !Agent/output/
 !Agent/output/**
 
+# Allow chat history exports
+!*.txt
+
 # Allow PDF export script
 !cv_to_pdf.py
 

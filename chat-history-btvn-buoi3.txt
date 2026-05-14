@@ -1,0 +1,306 @@
+================================================================
+LỊCH SỬ LÀM VIỆC VỚI CLAUDE CODE
+BTVN Buổi 3 — Multi-Agent Workspace
+Ngày: 14/05/2026
+Người dùng: Mai (maicareer2023@gmail.com)
+================================================================
+
+----------------------------------------------------------------
+MỤC TIÊU BÀI TẬP
+----------------------------------------------------------------
+Từ kết quả BTVN buổi 3, nâng cấp không gian làm việc bằng cách xây dựng:
+- >= 2 sub agents, mỗi agent >= 2 SKILLs
+- Giao 1 nhiệm vụ lớn cho Claude Code và để nó tự phân bổ cho các sub agent
+
+Output yêu cầu:
+1. Files và folder code trên 1 repo Github (.claude có /agents và /commands)
+2. File ghi chép lại lịch sử trò chuyện với Claude Code (/export)
+3. Các file output từ việc giao việc cho Agent và sử dụng SKILLs
+
+----------------------------------------------------------------
+BƯỚC 1 — XÂY DỰNG CẤU TRÚC WORKSPACE
+----------------------------------------------------------------
+
+[User] Gửi ảnh bài tập buổi 3, yêu cầu xây dựng multi-agent workspace
+
+[Claude] Đọc yêu cầu → lên kế hoạch:
+- Agent 1: Content Creator (skills: viet-bai-blog, viet-social-media)
+- Agent 2: Market Researcher (skills: nghien-cuu-thi-truong, phan-tich-xu-huong)
+- Big Task: Chiến dịch content marketing cho cafe "Hương Phố"
+
+[Claude] Tạo thư mục:
+  .claude/agents/
+  .claude/commands/
+  Agent/output/
+
+[Claude] Tạo 2 agent files:
+  .claude/agents/content-creator.md
+    - name: Content Creator
+    - tools: Write, Read, WebSearch, WebFetch
+    - Chuyên môn: viết blog SEO, social media, copywriting tiếng Việt
+    - Skills: /viet-bai-blog, /viet-social-media
+
+  .claude/agents/market-researcher.md
+    - name: Market Researcher
+    - tools: WebSearch, WebFetch, Write, Read
+    - Chuyên môn: nghiên cứu thị trường VN & SEA, phân tích xu hướng
+    - Skills: /nghien-cuu-thi-truong, /phan-tich-xu-huong
+
+[Claude] Tạo 4 skill files:
+  .claude/commands/viet-bai-blog.md
+    → Viết bài blog SEO-optimized 1000-1500 từ tiếng Việt
+    → Cấu trúc: phân tích từ khóa → H1/H2/H3 → meta description → CTA
+    → Lưu output vào Agent/output/blog-[slug]-[date].md
+
+  .claude/commands/viet-social-media.md
+    → Tạo 9 posts đa nền tảng: 3 FB + 2 TikTok scripts + 2 IG + 2 LinkedIn
+    → Lưu output vào Agent/output/social-media-[slug]-[date].md
+
+  .claude/commands/nghien-cuu-thi-truong.md
+    → Báo cáo 5 phần: tổng quan, khách hàng, cạnh tranh, cơ hội, khuyến nghị
+    → Lưu output vào Agent/output/research-[slug]-[date].md
+
+  .claude/commands/phan-tich-xu-huong.md
+    → Phân tích xu hướng hiện tại + dự báo + case studies + khuyến nghị
+    → Lưu output vào Agent/output/trends-[slug]-[date].md
+
+----------------------------------------------------------------
+BƯỚC 2 — THỰC THI NHIỆM VỤ LỚN (Big Task Demo)
+----------------------------------------------------------------
+
+[User] Giao nhiệm vụ lớn: "Xây dựng chiến dịch content marketing hoàn chỉnh
+cho thương hiệu cafe 'Hương Phố' khi ra mắt kênh online tại TP.HCM"
+
+[Claude - Orchestrator] Phân tích → phân bổ theo thứ tự:
+  1. Market Researcher → nghiên cứu trước
+  2. Market Researcher → phân tích xu hướng
+  3. Content Creator → viết blog (dựa trên insights từ research)
+  4. Content Creator → tạo social media content
+
+--- Task 1: Market Researcher Agent / Skill: /nghien-cuu-thi-truong ---
+
+Input: "chuỗi cafe specialty và cafe thương hiệu Việt Nam tại TP.HCM —
+phục vụ cho thương hiệu cafe mới 'Hương Phố' ra mắt kênh online 2026"
+
+Output file: research-cafe-specialty-hcm-2026-05-14.md
+
+Nội dung chính:
+- Thị trường cafe HCM: ~$1.2 tỷ USD, tăng 12-15%/năm
+- 22.000+ quán cafe tại HCM
+- Phân khúc: Premium (18%), Mid-range (45%), Budget (37%)
+- Target: nữ 22-35 tuổi, thu nhập 10-25 triệu/tháng
+- Top đối thủ: Highlands (18%), The Coffee House (12%), Phúc Long (10%), Katinat (7%)
+- Cơ hội: khoảng trống "cafe Việt có hồn" + kênh online chưa có leader
+- Positioning đề xuất: "Hương Phố — Cafe Sài Gòn, kể chuyện Việt"
+
+Key findings cho Content Creator:
+  → USP: Single-origin Cầu Đất + không hương liệu
+  → Kênh ưu tiên: TikTok-first → TikTok Shop → GrabFood
+  → Từ khóa: "cafe Đà Lạt", "cafe Sài Gòn xưa", "single origin Việt Nam"
+  → Tone: Ấm áp, tự hào Việt, kể chuyện
+
+--- Task 2: Market Researcher Agent / Skill: /phan-tich-xu-huong ---
+
+Input: "F&B và cafe specialty Việt Nam 2025–2026 —
+phục vụ chiến lược ra mắt kênh online cho Hương Phố Cafe"
+
+Output file: trends-cafe-specialty-vn-2026-05-14.md
+
+5 xu hướng đang nổi:
+1. TikTok là kênh khám phá cafe số 1 của Gen Z (+340% lượt tìm kiếm)
+2. Social Commerce — bán cafe qua TikTok Shop tăng 580%
+3. Farm-to-Cup Storytelling — nguồn gốc minh bạch tăng giá trị 35-50%
+4. Packaging đổi mới — cafe "không mất chất" khi giao
+5. Loyalty 2.0 — tích điểm thông minh + personalization
+
+3 xu hướng quan trọng nhất cho Content Creator:
+  → TikTok-first: hook mạnh trong 3 giây đầu
+  → Farm-to-cup: luôn đề cập nguồn gốc Đà Lạt/Cầu Đất
+  → Social proof qua UGC
+
+--- Task 3: Content Creator Agent / Skill: /viet-bai-blog ---
+
+Input: "Tại sao cafe Đà Lạt single-origin là lựa chọn tốt nhất cho người
+Sài Gòn yêu cafe thật — cho nhân viên văn phòng và freelancer TP.HCM 25-35 tuổi"
+
+Output file: blog-cafe-da-lat-single-origin-sai-gon-2026-05-14.md
+
+Bài blog ~1.100 từ:
+- Tiêu đề: "Cafe Đà Lạt Ngon Đến Mức Nào? Sự Thật Mà Dân Sài Gòn Ít Ai Biết"
+- Từ khóa chính: "cafe Đà Lạt ngon"
+- Cấu trúc: Hook (số liệu 70% cafe dùng hương liệu) → So sánh → Điều kiện tự nhiên Cầu Đất → Cách pha → CTA
+- CTA 3 kênh: TikTok Shop / GrabFood / comment
+
+--- Task 4: Content Creator Agent / Skill: /viet-social-media ---
+
+Input: "Hương Phố Cafe — cafe Đà Lạt single-origin, ra mắt kênh online tại TP.HCM"
+
+Output file: social-media-huong-pho-cafe-2026-05-14.md
+
+Bộ content 7 posts:
+  Facebook (3):
+    - Post 1 Educational: "Bạn đang uống cafe thật, hay đang uống hương liệu?"
+    - Post 2 Storytelling: Câu chuyện buổi sáng tại vườn Cầu Đất
+    - Post 3 Promotional: Ra mắt + giảm 30% + freeship tháng 5
+
+  TikTok Scripts (2):
+    - Script 1 (60s): "Cafe Việt Nam ngon nhất thế giới mà người Việt không biết"
+      [0-3s] Hook → [4-47s] 3 điểm → [48-60s] CTA "comment HUONG PHO"
+    - Script 2 (45s): Behind the Scenes ngày rang cafe thứ Hai
+
+  Instagram (2):
+    - Caption 1 Feed: "Sài Gòn sáng sớm. Ly cafe. Không vội."
+    - Caption 2 Carousel: "5 điều về cafe Đà Lạt mà mình ước ai đó kể sớm hơn"
+
+Kèm lịch đăng 7 ngày đề xuất.
+
+----------------------------------------------------------------
+BƯỚC 3 — FIX LỖI & COMMIT
+----------------------------------------------------------------
+
+[User] "Lướt qua 1 lần nữa, chạy thử xem có đang lỗi gì không"
+
+[Claude] Kiểm tra toàn bộ:
+- Đọc tất cả 6 files (2 agents + 4 commands)
+- Chạy git status → Phát hiện 2 lỗi:
+
+LỖI 1: .claude/agents/ bị gitignore
+  → .gitignore dùng wildcard * nhưng chỉ allow .claude/commands/
+  → Agents folder không được track
+  → FIX: Thêm !.claude/agents/ và !.claude/agents/**
+
+LỖI 2: Agent/output/ bị gitignore
+  → Toàn bộ output files không được track
+  → FIX: Thêm !Agent/ và !Agent/output/ và !Agent/output/**
+
+[Claude] Commit + Push:
+  Commit: 82f6a8b "feat: add multi-agent workspace with 2 agents and 4 skills (BTVN buoi 3)"
+  20 files changed, 1186 insertions, 512 deletions
+
+----------------------------------------------------------------
+BƯỚC 4 — BỔ SUNG TÍNH NĂNG LINKEDIN
+----------------------------------------------------------------
+
+[User] "Bổ sung tính năng viết thêm 2 bài trên LinkedIn nữa,
+phong cách chia sẻ thông tin hữu ích, xây dựng thương hiệu"
+
+[Claude] Cập nhật .claude/commands/viet-social-media.md:
+  - Đổi description: 7 posts → 9 posts (thêm + 2 LinkedIn)
+  - Thêm section LINKEDIN POSTS với 2 formats:
+      Post 1 — Insight/Lesson Learned (150-250 chữ)
+        Format: Hook → Bối cảnh → 3-5 insights → Takeaway → Câu hỏi mở
+      Post 2 — Data/Framework (200-300 chữ)
+        Format: Hook số liệu → Danh sách đánh số → CTA nhẹ
+  - Lưu ý LinkedIn: ít emoji, 3-5 hashtag, ngôi thứ nhất, hook ở dòng đầu
+
+[Claude] Commit + Push:
+  Commit: 4b2d67a "feat: add LinkedIn posts to viet-social-media skill"
+
+----------------------------------------------------------------
+BƯỚC 5 — RESEARCH THÊM (Dùng skill thực tế)
+----------------------------------------------------------------
+
+[User] Gọi /nghien-cuu-thi-truong với yêu cầu:
+"Tôi muốn nghiên cứu thị trường tuyển dụng outsourcing support
+trong lĩnh vực marketing hiện nay, nhu cầu là gì và người lao động
+cần chuẩn bị gì để mình có tiềm năng hơn ứng viên khác"
+
+Output file: research-tuyen-dung-outsource-marketing-2026-05-14.md
+
+Highlights:
+  - 85.000-120.000 freelancer marketing đang hoạt động tại VN
+  - Top 7 vị trí outsource: Content Writer, Social Media Mgr, Performance Ads...
+  - Cạnh tranh: 50-200 proposals/job trên Upwork
+  - Tỷ lệ được chọn: 1-3% nếu apply ngẫu nhiên; 20-40% nếu có portfolio mạnh
+
+Lộ trình 90 ngày:
+  Tháng 1: Chọn niche + làm portfolio 5 case study + cập nhật LinkedIn
+  Tháng 2: Học đọc số liệu + đăng bài LinkedIn + connect 20-30 người/ngành
+  Tháng 3: Client đầu tiên + testimonial + tăng rate
+
+5 điều quan trọng nhất:
+  1. Niche beats generalist
+  2. Portfolio > Bằng cấp
+  3. AI là công cụ, không phải đối thủ
+  4. LinkedIn là kênh quan trọng nhất
+  5. 90 ngày đầu là giai đoạn quan trọng nhất
+
+[Claude] Commit + Push:
+  Commit: caed953 "feat: add market research on outsourcing marketing support roles"
+
+----------------------------------------------------------------
+BƯỚC 6 — DEMO THÊM (Personal Branding Content)
+----------------------------------------------------------------
+
+[User] Hỏi về flow làm việc với ví dụ: viết social media về
+góc nhìn nhân sự 3-4 năm kinh nghiệm brand-digital
+
+[Claude] Giải thích flow → Thực thi luôn với Content Creator Agent:
+
+Output file: social-media-nhan-su-brand-digital-2026-05-14.md
+
+Bộ 9 posts personal branding:
+  Facebook:
+    - "Sau 3 năm làm brand & digital, đây là thứ mình ước ai đó nói..."
+    - Storytelling: Buổi chiều nhìn dashboard ads đẹp nhưng doanh số không tăng
+    - Promotional: CTA follow LinkedIn để đọc thêm
+
+  TikTok:
+    - "3 sai lầm mình thấy marketer mắc nhiều nhất ở năm 1-3"
+    - Behind the Scenes: Một ngày làm việc thực sự
+
+  Instagram:
+    - "3 năm. Hàng trăm campaign. Vô số lần sai trước khi đúng."
+    - Carousel: "5 unpopular opinions của người làm brand 3+ năm"
+
+  LinkedIn:
+    - Lesson: Bị sếp hỏi "doanh số tăng bao nhiêu?" — khoảnh khắc ngộ ra
+    - Framework: "5 câu hỏi để đánh giá một marketer thật sự giỏi"
+
+----------------------------------------------------------------
+TỔNG KẾT CẤU TRÚC WORKSPACE CUỐI CÙNG
+----------------------------------------------------------------
+
+Repository: https://github.com/MaiBlossom/Mai-claude-code-workspace.git
+Branch: main
+Commits trong session này: 82f6a8b → 4b2d67a → caed953
+
+.claude/
+├── agents/
+│   ├── content-creator.md
+│   └── market-researcher.md
+└── commands/
+    ├── viet-bai-blog.md
+    ├── viet-social-media.md      (updated: thêm LinkedIn)
+    ├── nghien-cuu-thi-truong.md
+    └── phan-tich-xu-huong.md
+
+Agent/
+└── output/
+    ├── research-cafe-specialty-hcm-2026-05-14.md
+    ├── trends-cafe-specialty-vn-2026-05-14.md
+    ├── blog-cafe-da-lat-single-origin-sai-gon-2026-05-14.md
+    ├── social-media-huong-pho-cafe-2026-05-14.md
+    ├── CAMPAIGN-SUMMARY-huong-pho-2026-05-14.md
+    ├── research-tuyen-dung-outsource-marketing-2026-05-14.md
+    └── social-media-nhan-su-brand-digital-2026-05-14.md
+
+----------------------------------------------------------------
+CÁCH SỬ DỤNG WORKSPACE
+----------------------------------------------------------------
+
+1. Mở Claude Code tại: C:\Users\ADMIN\Desktop\Claude Code\
+
+2. Gọi skill trực tiếp:
+   /viet-bai-blog [chủ đề] cho [đối tượng]
+   /viet-social-media [thương hiệu] + [mục tiêu]
+   /nghien-cuu-thi-truong [ngành] tại [địa bàn]
+   /phan-tich-xu-huong [lĩnh vực] năm [năm]
+
+3. Hoặc giao nhiệm vụ lớn tự nhiên:
+   "Nghiên cứu thị trường X và viết chiến dịch content Y"
+   → Claude tự chọn agent phù hợp và phân bổ công việc
+
+================================================================
+END OF SESSION LOG
+================================================================

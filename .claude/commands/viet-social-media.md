@@ -1,5 +1,5 @@
 ---
-description: Tạo bộ nội dung mạng xã hội đa nền tảng bằng tiếng Việt (7 posts: 3 Facebook + 2 TikTok scripts + 2 Instagram). Dùng: /viet-social-media [thương hiệu/sản phẩm] + [mục tiêu campaign] — ví dụ: /viet-social-media Cafe Hương Phố tăng awareness khai trương chi nhánh mới
+description: Tạo bộ nội dung mạng xã hội đa nền tảng bằng tiếng Việt (9 posts: 3 Facebook + 2 TikTok scripts + 2 Instagram + 2 LinkedIn). Dùng: /viet-social-media [thương hiệu/sản phẩm] + [mục tiêu campaign] — ví dụ: /viet-social-media Cafe Hương Phố tăng awareness khai trương chi nhánh mới
 ---
 
 Tạo bộ nội dung mạng xã hội hoàn chỉnh bằng tiếng Việt cho:
@@ -60,6 +60,38 @@ Caption ngắn gọn, aesthetic, kèm:
 
 ### IG Caption 2 — Carousel/Educational (100-150 chữ + hashtags)
 Caption dạng list "5 điều bạn chưa biết về..." hoặc "Slide [số] là điều bạn cần nhất"
+
+---
+
+## LINKEDIN POSTS (2 bài)
+
+Phong cách: chia sẻ insight/kiến thức hữu ích, xây dựng thương hiệu cá nhân/doanh nghiệp. Giọng văn chuyên nghiệp nhưng gần gũi — như chuyên gia đang chia sẻ bài học thật từ thực tế, không phải quảng cáo.
+
+### LinkedIn Post 1 — Insight/Lesson Learned (150-250 chữ)
+**Mục tiêu:** Xây dựng thought leadership, tăng credibility
+**Format:**
+- Dòng đầu tiên (hook) — câu ngắn, gây tò mò hoặc đưa ra nhận định bất ngờ (LinkedIn chỉ hiện 2-3 dòng trước "See more")
+- Dấu xuống dòng thường xuyên — mỗi ý 1-2 dòng, không viết thành đoạn dài
+- Cấu trúc: Hook → Bối cảnh/câu chuyện ngắn → 3-5 insights dạng gạch đầu dòng → Takeaway → Câu hỏi mở cho comment
+- Kết thúc bằng: Câu hỏi mời độc giả chia sẻ kinh nghiệm
+
+**Nội dung gợi ý:** Bài học từ quá trình xây dựng thương hiệu/sản phẩm, điều ngạc nhiên khi ra mắt thị trường, hoặc insight về ngành liên quan đến thương hiệu/sản phẩm được cung cấp.
+
+---
+
+### LinkedIn Post 2 — Data/Framework (200-300 chữ)
+**Mục tiêu:** Cung cấp giá trị thực dụng, được save và share nhiều
+**Format:**
+- Hook mạnh bằng con số hoặc tuyên bố phản trực giác
+- Phần thân: framework hoặc danh sách có đánh số rõ ràng (ví dụ: "3 điều tôi học được", "5 sai lầm phổ biến khi...")
+- Mỗi điểm: tên điểm in đậm + giải thích ngắn 1-2 câu
+- Kết thúc bằng: CTA nhẹ ("Save bài này nếu hữu ích" hoặc "Follow để đọc thêm") + câu hỏi gợi thảo luận
+
+**Lưu ý LinkedIn:**
+- KHÔNG dùng emoji quá nhiều (tối đa 3-5 cái, dùng ở đầu bullet point)
+- Hashtag đặt cuối bài, 3-5 hashtag thôi (ít hơn Instagram nhiều)
+- Đề cập số liệu cụ thể nếu có (tăng trust)
+- Viết bằng ngôi thứ nhất "tôi/mình" — cá nhân hóa mạnh hơn
 
 ---
 

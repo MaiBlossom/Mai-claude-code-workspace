@@ -4,22 +4,20 @@
 # Allow git tracking files
 !.gitignore
 
-# Allow skill commands
+# Allow .claude folder (agents + commands/skills)
 !.claude/
+!.claude/agents/
+!.claude/agents/**
 !.claude/commands/
 !.claude/commands/**
 
+# Allow Agent output folder
+!Agent/
+!Agent/output/
+!Agent/output/**
+
 # Allow PDF export script
 !cv_to_pdf.py
-
-# Allow news output folder
-!news-output/
-!news-output/**
-
-# Allow CV output folder (md only, not pdf)
-!.claude/commands/cv-builder/output/
-!.claude/commands/cv-builder/output/*.md
-!.claude/commands/cv-builder/output/.gitkeep
 
 # Ignore generated PDFs (large binary, not needed in repo)
 *.pdf
